@@ -1,5 +1,5 @@
-import LeftPanel from '../components/LeftPanel/LeftPanel';
-import RightPanel from '../components/RightPanel/RightPanel';
+import LeftPanel from '../components/LoginPage/LeftPanel/LeftPanel';
+import RightPanel from '../components/LoginPage/RightPanel/RightPanel';
 
 function LoginPage() {
 	return (

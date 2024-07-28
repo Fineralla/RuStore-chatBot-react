@@ -4,7 +4,7 @@ import InputHeader from './InputHeader/InputHeader';
 
 function RightPanel() {
 	return (
-		<div className='right-panel'>
+		<div className='right-panel-login'>
 			<InputHeader />
 			<InputBox />
 		</div>

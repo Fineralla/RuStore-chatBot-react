@@ -1,0 +1,16 @@
+.right-panel__chat-window {
+	box-sizing: border-box;
+	width: 90%;
+	margin: 0 auto;
+	height: 80%;
+	flex-direction: column-reverse;
+	overflow-y: auto;
+	align-items: flex-end;
+	margin-top: 15px;
+}
+
+.right-panel__chat-height {
+	margin: 0 40px;
+	height: fit-content;
+	transition: height 0.5s;
+}

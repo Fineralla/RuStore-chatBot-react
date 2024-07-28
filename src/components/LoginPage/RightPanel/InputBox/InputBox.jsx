@@ -1,9 +1,8 @@
 import './InputBox.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRef } from 'react';
-
-import InputLoginForm from '../InputForm/InputLoginForm';
-import InputRegForm from '../InputForm/InputRegForm';
+import InputLoginForm from '../InputForms/InputLoginForm';
+import InputRegForm from '../InputForms/InputRegForm';
 
 function InputBox() {
 	const [loginValue, setLoginValue] = useState({
@@ -16,9 +15,19 @@ function InputBox() {
 		password: ''
 	});
 
-	const [person, setPerson] = useState({
-		id: '',
-		password: ''
+	const useLocalStorageList = (key, defaultValue) => {
+		const [person, setPerson] = useState(() =>
+			JSON.parse(localStorage.getItem(key) || defaultValue)
+		);
+		useEffect(() => {
+			localStorage.setItem(key, JSON.stringify(person));
+		}, [key, person]);
+		return [person, setPerson];
+	};
+
+	const [person, setPerson] = useLocalStorageList('person', {
+		id: 0,
+		password: 0
 	});
 
 	const wrapperRef = useRef(null);

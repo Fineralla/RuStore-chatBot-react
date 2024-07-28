@@ -33,8 +33,6 @@ function InputLoginForm({ loginValue, setLoginValue, person, wrapperRef }) {
 							setLoginValue({ ...loginValue, VK_id: e.target.value })
 						}
 						type='number'
-						// maxLength='9'
-						// max='9'
 						name='VK_id'
 						required
 					/>

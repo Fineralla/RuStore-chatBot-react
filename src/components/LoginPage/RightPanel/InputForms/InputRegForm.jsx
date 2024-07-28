@@ -52,7 +52,7 @@ function InputRegForm({ regValue, setRegValue, setPerson, wrapperRef }) {
 			<div className='remember-forgot'>
 				<label className='container'>
 					<input type='checkbox' />
-					<div className='checkmark'></div>Я ознакомился и согласен с политикой
+					<div className='checkmark'></div>*Я ознакомился и согласен с политикой
 					конфиденциальности
 				</label>
 			</div>
