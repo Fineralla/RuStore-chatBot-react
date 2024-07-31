@@ -1,6 +1,7 @@
 import { useRef } from 'react';
-import './HeaderPerson.scss';
 import { useNavigate } from 'react-router-dom';
+
+import './HeaderPerson.scss';
 
 function HeaderPerson() {
 	const navigate = useNavigate();

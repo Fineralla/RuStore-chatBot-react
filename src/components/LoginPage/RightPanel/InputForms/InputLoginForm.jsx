@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 import './InputForm.scss';
 
 function InputLoginForm({ loginValue, setLoginValue, person, wrapperRef }) {

@@ -1,6 +1,7 @@
-import './RightPanel.scss';
 import InputBox from './InputBox/InputBox';
 import InputHeader from './InputHeader/InputHeader';
+
+import './RightPanel.scss';
 
 function RightPanel() {
 	return (

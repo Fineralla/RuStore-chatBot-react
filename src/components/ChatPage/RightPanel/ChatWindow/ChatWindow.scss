@@ -10,7 +10,47 @@
 }
 
 .right-panel__chat-height {
-	margin: 0 40px;
+	box-sizing: border-box;
+	width: 100%;
+	font-weight: 400;
 	height: fit-content;
 	transition: height 0.5s;
+}
+
+.person-question-box {
+	padding: 20px 30px;
+	border-radius: 40px;
+	background-color: #d9d9d9;
+	height: auto;
+	margin: 20px 0 20px auto;
+	width: fit-content;
+	max-width: 80%;
+	// transform: translateY(120%);
+	transition: transform 0.5s;
+}
+
+.bot-answer-box {
+	position: relative;
+	padding: 20px 30px 20px 65px;
+	border-radius: 40px;
+	background-color: #f2f2f2;
+	height: auto;
+	margin: 20px auto 20px 0;
+	width: fit-content;
+	max-width: 80%;
+	// transform: translateY(120%);
+	transition: transform 0.5s;
+}
+
+.bot-answer-box::before {
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	content: '';
+	background-image: url('/review.svg');
+	width: 30px;
+	height: 30px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }

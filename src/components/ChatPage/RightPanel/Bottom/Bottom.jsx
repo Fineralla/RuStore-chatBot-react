@@ -1,18 +1,32 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+
 import './Bottom.scss';
 
-function Bottom({ chatWindowRef, commonInfoRef, setDialog }) {
-	const [inputValue, setInputValue] = useState('');
-
-	const addMessage = () => {
-		console.log(chatWindowRef);
-		chatWindowRef.current.classsName = 'right-panel__chat-window';
-		commonInfoRef.current.classList.add('hidden');
-		console.log(chatWindowRef.current.classsName);
-		console.log(commonInfoRef.current.classsName);
-		setDialog(inputValue);
+function Bottom({
+	inputValue,
+	setInputValue,
+	sendMessageButtonRef,
+	addMessage
+}) {
+	const onKeyDown = (e) => {
+		if (e.key === 'Enter') {
+			sendMessageButtonRef.click();
+		}
 	};
 
+	useEffect(() => {
+		const onKeypress = (e) => {
+			if (e.key === 'Enter') {
+				sendMessageButtonRef.current?.click();
+			}
+		};
+
+		document.addEventListener('keypress', onKeypress);
+
+		return () => {
+			document.removeEventListener('keypress', onKeypress);
+		};
+	}, []);
 	return (
 		<div className='right-panel-chat__bottom'>
 			<div className='right-panel-chat__input-box'>
@@ -28,8 +42,11 @@ function Bottom({ chatWindowRef, commonInfoRef, setDialog }) {
 					placeholder='Введите запрос WCB'
 				/>
 				<button
+					onKeyDown={onKeyDown}
+					ref={sendMessageButtonRef}
 					onClick={addMessage}
 					className='right-panel-chat__send-question reset-button'
+					type='sumbit'
 				></button>
 			</div>
 			<div className='right-panel-chat__team-name-box'>

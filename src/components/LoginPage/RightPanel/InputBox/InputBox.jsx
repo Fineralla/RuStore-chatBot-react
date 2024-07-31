@@ -1,8 +1,10 @@
-import './InputBox.scss';
 import { useEffect, useState } from 'react';
 import { useRef } from 'react';
+
 import InputLoginForm from '../InputForms/InputLoginForm';
 import InputRegForm from '../InputForms/InputRegForm';
+
+import './InputBox.scss';
 
 function InputBox() {
 	const [loginValue, setLoginValue] = useState({

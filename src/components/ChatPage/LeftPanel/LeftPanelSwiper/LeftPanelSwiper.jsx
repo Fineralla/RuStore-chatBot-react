@@ -1,11 +1,17 @@
 import './LeftPanelSwiper.scss';
 
 function LeftPanelSwiper({ leftPanelSwiperRef }) {
+	const refreshPage = () => {
+		window.location.reload();
+	};
 	return (
 		<>
 			<div ref={leftPanelSwiperRef} className='left-panel-swiper'>
 				<div className='left-panel-swiper__buttons panel-flex'>
-					<button className='left-panel-swiper__web panel-flex reset-button'>
+					<button
+						onClick={refreshPage}
+						className='left-panel-swiper__web panel-flex reset-button'
+					>
 						<img
 							className='left-panel-swiper__button-web'
 							src='/logo.svg'
