@@ -1,10 +1,11 @@
 import './InputHeader.scss';
+import logo from '../../../../../public/logo.svg';
 
 function InputHeader() {
 	return (
 		<div className='right-panel-login__header'>
 			<div className='right-panel-login__img-box'>
-				<img className='right-panel-login__img' src='/logo.svg' alt='' />
+				<img className='right-panel-login__img' src={logo} alt='' />
 			</div>
 			<div className='right-panel-login__heading'>
 				Используйте Вашу учетную запись чтобы пользоваться преимуществом бота

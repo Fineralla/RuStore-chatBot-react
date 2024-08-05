@@ -1,5 +1,6 @@
 .right-panel-chat {
 	&__header {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -13,9 +14,12 @@
 	}
 
 	&__account {
-		position: relative;
 		display: flex;
 		gap: 15px;
+
+		.account__button {
+			position: relative;
+		}
 
 		.account__exit-button-box {
 			position: absolute;
@@ -24,7 +28,7 @@
 
 		.account__exit-button-box-active {
 			display: block;
-			left: -41px;
+			right: 148px;
 		}
 
 		.account__exit-button {

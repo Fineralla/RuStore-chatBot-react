@@ -1,4 +1,6 @@
 import './LeftPanelSwiper.scss';
+import logo from '../../../../../public/logo.svg';
+import review from '../../../../../public/review.svg';
 
 function LeftPanelSwiper({ leftPanelSwiperRef }) {
 	const refreshPage = () => {
@@ -12,17 +14,13 @@ function LeftPanelSwiper({ leftPanelSwiperRef }) {
 						onClick={refreshPage}
 						className='left-panel-swiper__web panel-flex reset-button'
 					>
-						<img
-							className='left-panel-swiper__button-web'
-							src='/logo.svg'
-							alt=''
-						/>
+						<img className='left-panel-swiper__button-web' src={logo} alt='' />
 						<p className='left-panel-swiper__web-text'>Web chat-bot</p>
 					</button>
 					<button className='left-panel-swiper__review panel-flex reset-button'>
 						<img
 							className='left-panel-swiper__buttons-img'
-							src='/review.svg'
+							src={review}
 							alt=''
 						/>
 						<p>Обзор</p>

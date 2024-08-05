@@ -1,21 +1,30 @@
 import './InputForm.scss';
+import { useDispatch } from 'react-redux';
 
-function InputRegForm({ regValue, setRegValue, setPerson, wrapperRef }) {
-	function initPerson() {
-		if (regValue.VK_id !== '' && regValue.password !== '') {
-			setPerson({ id: regValue.VK_id, password: regValue.password });
-			alert('Вы успешно зарегистрированы!');
+function InputRegForm({ regValue, setRegValue, wrapperRef }) {
+	const dispatch = useDispatch();
+
+	function initPerson(e) {
+		e.preventDefault();
+		if (regValue.VK_id && regValue.password) {
+			const pers = {
+				id: regValue.VK_id,
+				password: regValue.password
+			};
+			dispatch({ type: 'ADD_PERSON', payload: pers });
+
+			alert(
+				`Вы успешно зарегистрированы!\nВаши данные для входа:\nЛогин: ${pers.id}\nПароль: ${pers.password}`
+			);
+			setRegValue({ VK_id: '', password: '' });
 		} else {
 			alert('Введите даннные для регистрации');
 		}
-		setRegValue({ VK_id: '', password: '' });
 	}
 
 	function toggleWrapper() {
-		console.log();
 		if (!wrapperRef) return;
 		wrapperRef.current.classList.remove('active');
-		console.log(wrapperRef.current);
 	}
 
 	return (

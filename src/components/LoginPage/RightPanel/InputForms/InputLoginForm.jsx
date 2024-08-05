@@ -1,26 +1,32 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import './InputForm.scss';
 
-function InputLoginForm({ loginValue, setLoginValue, person, wrapperRef }) {
+function InputLoginForm({ loginValue, setLoginValue, wrapperRef }) {
+	const person123 = useSelector((state) => state.person.person123);
 	const navigate = useNavigate();
+	const ID = String(person123.map((person) => person.id));
+	const password = String(person123.map((person) => person.password));
 
-	const valueInfo = () => {
-		if (
-			loginValue.VK_id === person.id &&
-			loginValue.password === person.password
-		) {
+	const valueInfo = (e) => {
+		e.preventDefault();
+		if (loginValue.VK_id === ID && loginValue.password === password) {
+			console.log(ID, password);
+			console.log(loginValue.VK_id, loginValue.password);
+			console.log('navigate');
+
 			navigate('/chat');
 		} else {
 			alert('Неправильные данные');
+			console.log(ID, password);
+			console.log(loginValue.VK_id, loginValue.password);
 		}
 	};
 
 	function toggleWrapper() {
-		console.log();
 		if (!wrapperRef) return;
 		wrapperRef.current.classList.add('active');
-		console.log(wrapperRef.current);
 	}
 
 	return (

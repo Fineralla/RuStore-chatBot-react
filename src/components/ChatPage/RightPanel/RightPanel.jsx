@@ -30,10 +30,7 @@ function RightPanel() {
 			}
 			setDialog([...dialog, inputValue, answerValue]);
 			setInputValue('');
-			console.log('addMessage');
 		}
-		console.log('input value', inputValue);
-		console.log('not addMessage');
 	};
 
 	return (

@@ -1,11 +1,14 @@
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+import account from '../../../../../public/account.svg';
 import './HeaderPerson.scss';
 
 function HeaderPerson() {
+	const person123 = useSelector((state) => state.person.person123);
+	const ID = String(person123.map((person) => person.id));
 	const navigate = useNavigate();
-	const person = JSON.parse(localStorage.getItem('person'));
 	const accountExitButtonRef = useRef(null);
 
 	const exitToLogin = () => {
@@ -18,22 +21,24 @@ function HeaderPerson() {
 		accountExitButtonRef.current.classList.toggle(
 			'account__exit-button-box-active'
 		);
-		console.log(accountExitButtonRef.current);
 	}
 
 	return (
 		<div className='right-panel-chat__header'>
 			<h1 className='right-panel-chat__heading'>Web chat-bot RuStore</h1>
 			<div className='right-panel-chat__account'>
-				<p className='account__name'>ID: {person.id}</p>
+				<p className='account__name'>ID: {ID}</p>
 				<button onClick={toggleDiv} className='account__button reset-button'>
-					<img src='/account.svg' alt='' />
+					<img src={account} alt='' />
 				</button>
 				<div ref={accountExitButtonRef} className='account__exit-button-box'>
 					<div className='triangle-up-account'></div>
-					<button className='account__exit-button reset-button'>
+					<button
+						onClick={exitToLogin}
+						className='account__exit-button reset-button'
+					>
 						{' '}
-						<a onClick={exitToLogin}>Выход</a>
+						<a>Выход</a>
 					</button>
 				</div>
 			</div>
